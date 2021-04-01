@@ -37,6 +37,7 @@ function generatePassword(lower, upper, number, symbol, length) {
         return '';
     }
 
+
     for(let i = 0; i < length; i += typesCount) {
        typesArr.forEach(type => {
            const funcName = Object.keys(type)[0];
@@ -48,6 +49,16 @@ function generatePassword(lower, upper, number, symbol, length) {
 
 } 
 
+document.getElementById("length").addEventListener("change", function(e){
+   if(e.target.value > 128){
+      alert("Maximum length is 128");
+      e.target.value = 128;
+   } 
+   else if (e.target.value < 8) {
+      alert("minimum length is 8");
+      e.target.value = 8;
+   }
+});
 
 
 
